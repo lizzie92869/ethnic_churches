@@ -1,0 +1,21 @@
+.row.justify-content-center
+  .jumbotron.col-9
+    = form_for @ethnic_church do |f|
+      = f.text_field :name
+      = f.text_field :phone
+      = f.text_field :website
+      = f.text_field :pastors_name
+      = f.text_field :email
+      = fields_for :language do |lang|
+        = lang.text_field :name
+      = fields_for :country do |country|
+        = country.text_field :name
+      = fields_for :religious_background do |religious_background|
+        = religious_background.text_field :persuasion
+      = fields_for :address do |address|
+        = address.text_field :street
+        = address.text_field :city
+        = address.text_field :zip
+      = fields_for :note do |note|
+        = note.text_field :content
+      = f.submit 'Create', id: 'create'
